@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "6a283159-f1d9-42ef-b588-ffb96becf3ec",
+		"name": "LoyaltyStudio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3315464"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "all user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"CJ2BF5UC586X3AX3U1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user1\",\n    \"phone\": \"0211\",\n    \"email\": \"user1@mail.com\",\n    \"password\": \"123\",\n    \"rolename\": \"CUSTOMER\",\n    \"rankname\": \"SILVER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"8853c861-db7e-4a61-8bf4-5d6859bea6c5\",\n        \"active\": true,\n        \"rolename\": \"MERCHANT\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"8853c861-db7e-4a61-8bf4-5d6859bea6c5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "merchants",
+			"item": [
+				{
+					"name": "all merchant",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"CJ2BF5UC586X3AX3U1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/merchant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"merchant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add merchant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"merchantname\": \"Alfamini\",\n    \"phone\": \"021888888\",\n    \"address\": \"jl. kota baru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/merchant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"merchant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update merchant",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"8853c861-db7e-4a61-8bf4-5d6859bea6c5\",\n        \"active\": true,\n        \"rolename\": \"MERCHANT\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete merchant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"8853c861-db7e-4a61-8bf4-5d6859bea6c5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/merchant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"merchant"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ranks",
+			"item": [
+				{
+					"name": "add rank",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rankname\": \"PLATINUM\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/rank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rank"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "roles",
+			"item": [
+				{
+					"name": "add role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rolename\": \"ADMIN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": []
+		},
+		{
+			"name": "vouchers",
+			"item": [
+				{
+					"name": "add voucher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vouchername\": \"DISKON5\",\n    \"voucherpoint\": \"021888888\",\n    \"vouchercode\": \"SATU\",\n    \"statusvoucher\": \"UNUSED\",\n    \"merchant\": \"5a8d9bc4-6a57-424a-a4ea-f0186198bc0d\",\n    \"user\": \"56e0d921-2c41-4554-8758-812ecfdfb48f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/voucher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voucher"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "benefits",
+			"item": []
+		},
+		{
+			"name": "transactions",
+			"item": []
+		}
+	]
+}
