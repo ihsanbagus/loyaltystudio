@@ -7,25 +7,182 @@
 	},
 	"item": [
 		{
-			"name": "users",
+			"name": "auth",
 			"item": [
 				{
-					"name": "all user",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "login",
 					"request": {
-						"method": "GET",
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"token\":\"CJ2BF5UC586X3AX3U1\"\n}",
+							"raw": "{\n    \"email\":\"ihsan@mail.com\",\n    \"password\":\"123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sample login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"ihsan@mail.com\",\n    \"password\":\"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"email\": \"ihsan@mail.com\",\n        \"token\": \"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTY0MjI0MiwiaWF0IjoxNjcxNjI0MjQyfQ.KHiOaiYxpxrzhSdd_zZLHZ8ncvnztPnq56kRForppA-QkUBNZCqIzOcfq25lbFjZrXDlI6YbKYNGQaWn8yzu1A\"\n    },\n    \"message\": \"Success\",\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user01\",\n    \"phone\": \"021\",\n    \"email\": \"user01@mail.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sample register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"user04\",\n    \"phone\": \"024\",\n    \"email\": \"user04@gmail.com\",\n    \"password\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"36f113b8-39ad-4c33-8c79-ffc7dcaab35c\",\n        \"active\": true,\n        \"point\": 0,\n        \"username\": \"user01\",\n        \"phone\": \"021\",\n        \"email\": \"user01@mail.com\",\n        \"role\": {\n            \"id\": \"7b5a3e1c-31a7-46b4-8679-a5918be13ab1\",\n            \"active\": true,\n            \"rolename\": \"CUSTOMER\"\n        }\n    },\n    \"message\": \"Success\",\n    \"status\": 201\n}"
+						}
+					]
+				}
+			],
+			"description": "All about :\n\n- login\n- register\n- forgot password"
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "all user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTY0NjM1NiwiaWF0IjoxNjcxNjI4MzU2fQ.-KoEhrHPKj5WDFN36pqj93gaqK1OugmAFA6EMcBdIiVv7q75qSnO8ZDArdqOMT3j4_hcCTpggzzL3GckxjHqqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxNTkxNTI1LCJpYXQiOjE2NzE1NTU1MjV9.0WLF7Lsb8C787FkvIbY9xy99SuUcuww1H9WHgx3X7aPJPOJJvaEA49pS25FQ5ONWn3xLZqPfYwmS-e93acb7Zg",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8080/user",
 							"protocol": "http",
@@ -38,7 +195,128 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "sample all user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxNTkxNTI1LCJpYXQiOjE2NzE1NTU1MjV9.0WLF7Lsb8C787FkvIbY9xy99SuUcuww1H9WHgx3X7aPJPOJJvaEA49pS25FQ5ONWn3xLZqPfYwmS-e93acb7Zg",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"3951f954-6030-402c-8da8-7993f574efe4\",\n            \"active\": true,\n            \"point\": 0,\n            \"username\": \"admin\",\n            \"phone\": \"08123456789\",\n            \"email\": \"ihsan@mail.com\",\n            \"role\": {\n                \"id\": \"ed56df89-95c2-4ef0-b5cc-6a5976cf79a2\",\n                \"active\": true,\n                \"rolename\": \"ADMIN\"\n            }\n        }\n    ],\n    \"message\": \"Success\",\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "get by id user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTY0NjM1NiwiaWF0IjoxNjcxNjI4MzU2fQ.-KoEhrHPKj5WDFN36pqj93gaqK1OugmAFA6EMcBdIiVv7q75qSnO8ZDArdqOMT3j4_hcCTpggzzL3GckxjHqqQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"CJ2BF5UC586X3AX3U1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/36f113b8-39ad-4c33-8c79-ffc7dcaab35c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"36f113b8-39ad-4c33-8c79-ffc7dcaab35c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "sample get user by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\":\"CJ2BF5UC586X3AX3U1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/user/56e0d921-2c41-4554-8758-812ecfdfb48f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"56e0d921-2c41-4554-8758-812ecfdfb48f"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"36f113b8-39ad-4c33-8c79-ffc7dcaab35c\",\n        \"active\": true,\n        \"point\": 0,\n        \"username\": \"user01\",\n        \"phone\": \"021\",\n        \"email\": \"user01@mail.com\",\n        \"role\": {\n            \"id\": \"7b5a3e1c-31a7-46b4-8679-a5918be13ab1\",\n            \"active\": true,\n            \"rolename\": \"CUSTOMER\"\n        }\n    },\n    \"message\": \"Success\",\n    \"status\": 200\n}"
+						}
+					]
 				},
 				{
 					"name": "add user",
@@ -48,7 +326,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYzNTc3MiwiaWF0IjoxNjcxNjE3NzcyfQ.jSpljJnRReCEzi9rGOMvWEu-NIam8v6xA5VnUAvrKnEYi3zFfjfJ8I8j0vi1C6QExS1ruQDkVeoTvbVl0l9TZg",
 									"type": "string"
 								}
 							]
@@ -57,7 +335,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"user1\",\n    \"phone\": \"0211\",\n    \"email\": \"user1@mail.com\",\n    \"password\": \"123\",\n    \"rolename\": \"CUSTOMER\",\n    \"rankname\": \"SILVER\"\n}",
+							"raw": "{\n    \"username\": \"user01\",\n    \"phone\": \"021\",\n    \"email\": \"user01@mail.com\",\n    \"password\": \"123\",\n    \"rolename\": \"CUSTOMER\",\n    \"rankname\": \"SILVER\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -144,21 +422,19 @@
 			"item": [
 				{
 					"name": "all merchant",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYxNjE2MiwiaWF0IjoxNjcxNTk4MTYyfQ.TwiQmzF4m4s8rKKIZI-3CzQX_frPgEK2FMWf9r-ZgTOydELxUk-Gun1e_NihxeRRVr7aGLUeg9sqS0LXrTjzPQ",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"token\":\"CJ2BF5UC586X3AX3U1\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "http://localhost:8080/merchant",
 							"protocol": "http",
@@ -181,7 +457,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYxNjE2MiwiaWF0IjoxNjcxNTk4MTYyfQ.TwiQmzF4m4s8rKKIZI-3CzQX_frPgEK2FMWf9r-ZgTOydELxUk-Gun1e_NihxeRRVr7aGLUeg9sqS0LXrTjzPQ",
 									"type": "string"
 								}
 							]
@@ -319,6 +595,35 @@
 			"name": "roles",
 			"item": [
 				{
+					"name": "all role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyMDFAZ21haWwuY29tIiwiZXhwIjoxNjcxNjA4NTIyLCJpYXQiOjE2NzE1OTA1MjJ9._2dTWRzMGYox6XRNiF3OPU4MW5bVfDQBiv4S2C7fdasE53x37icPcdbRk2x6ddUKzCdZiP2_L5Z64YfWaY4SzA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "add role",
 					"request": {
 						"auth": {
@@ -360,7 +665,75 @@
 		},
 		{
 			"name": "products",
-			"item": []
+			"item": [
+				{
+					"name": "add product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTY0MjI0MiwiaWF0IjoxNjcxNjI0MjQyfQ.KHiOaiYxpxrzhSdd_zZLHZ8ncvnztPnq56kRForppA-QkUBNZCqIzOcfq25lbFjZrXDlI6YbKYNGQaWn8yzu1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productname\": \"Baju\",\n    \"price\": 50000,\n    \"description\": \"Baju baru alhamdulillah\",\n    \"image\": \"baju.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTY0MjI0MiwiaWF0IjoxNjcxNjI0MjQyfQ.KHiOaiYxpxrzhSdd_zZLHZ8ncvnztPnq56kRForppA-QkUBNZCqIzOcfq25lbFjZrXDlI6YbKYNGQaWn8yzu1A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "vouchers",
@@ -373,7 +746,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "seyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb211c2VyMTIzIiwiZXhwIjoxNjcxMzEwMDAxLCJpYXQiOjE2NzEyNzQwMDF9.HOgSePOs2p606C3rDH7TeYBaJEawHrNU5HfyrLcJkAjUrlA3WDwalfH8JEjYRsDOREXeYzSVsAxvTT73yC9hMA",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYxNjE2MiwiaWF0IjoxNjcxNTk4MTYyfQ.TwiQmzF4m4s8rKKIZI-3CzQX_frPgEK2FMWf9r-ZgTOydELxUk-Gun1e_NihxeRRVr7aGLUeg9sqS0LXrTjzPQ",
 									"type": "string"
 								}
 							]
@@ -382,13 +755,42 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"vouchername\": \"DISKON5\",\n    \"voucherpoint\": \"021888888\",\n    \"vouchercode\": \"SATU\",\n    \"statusvoucher\": \"UNUSED\",\n    \"merchant\": \"5a8d9bc4-6a57-424a-a4ea-f0186198bc0d\",\n    \"user\": \"56e0d921-2c41-4554-8758-812ecfdfb48f\"\n}",
+							"raw": "{\n    \"vouchername\": \"DISKON50\",\n    \"voucherpoint\": 50,\n    \"vouchercode\": \"LIMAPULUH\",\n    \"voucherstatus\": \"UNUSED\",\n    \"vouchermerchant\": \"fc49c409-e138-41fe-8107-848db87423f7\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
+						"url": {
+							"raw": "http://localhost:8080/voucher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"voucher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all voucher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYxNjE2MiwiaWF0IjoxNjcxNTk4MTYyfQ.TwiQmzF4m4s8rKKIZI-3CzQX_frPgEK2FMWf9r-ZgTOydELxUk-Gun1e_NihxeRRVr7aGLUeg9sqS0LXrTjzPQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "http://localhost:8080/voucher",
 							"protocol": "http",
@@ -411,7 +813,75 @@
 		},
 		{
 			"name": "transactions",
-			"item": []
+			"item": [
+				{
+					"name": "add transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYzNTc3MiwiaWF0IjoxNjcxNjE3NzcyfQ.jSpljJnRReCEzi9rGOMvWEu-NIam8v6xA5VnUAvrKnEYi3zFfjfJ8I8j0vi1C6QExS1ruQDkVeoTvbVl0l9TZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userid\": \"b5682233-8d4d-47ac-a97b-220fc6672953\",\n    \"products\": [\n        {\n            \"id\": \"6cca8c31-0733-4462-bf64-1d58e9db1afb\",\n            \"qty\": 11\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJpaHNhbkBtYWlsLmNvbSIsImV4cCI6MTY3MTYzNTc3MiwiaWF0IjoxNjcxNjE3NzcyfQ.jSpljJnRReCEzi9rGOMvWEu-NIam8v6xA5VnUAvrKnEYi3zFfjfJ8I8j0vi1C6QExS1ruQDkVeoTvbVl0l9TZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
